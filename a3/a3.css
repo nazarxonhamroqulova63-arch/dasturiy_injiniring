@@ -1,0 +1,137 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f6f9;
+  color: #333;
+}
+
+.todo-container {
+  width: 100%;
+  max-width: 650px;
+  min-height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.todo-card {
+  width: 100%;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+}
+
+.todo-title {
+  margin-top: 0;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #2c3e50;
+  font-size: 24px;
+}
+
+.todo-table-wrapper {
+  overflow-x: auto;
+  margin-bottom: 20px;
+  max-height: 350px;
+}
+
+.todo-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  font-size: 14px;
+  table-layout: fixed;
+}
+
+.todo-table th,
+.todo-table td {
+  border: 1px solid #dcdde1;
+  padding: 8px;
+  word-wrap: break-word;
+}
+
+.todo-table th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.section-header,
+.type-header {
+  font-weight: bold;
+  background: #fafbfc;
+}
+
+.task-text {
+  text-align: left;
+  padding-left: 12px;
+  color: #2f3640;
+}
+
+.status-select {
+  width: 100%;
+  padding: 4px;
+  border: 1px solid #dcdde1;
+  border-radius: 4px;
+  background: #fff;
+  font-size: 13px;
+  outline: none;
+}
+
+.todo-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.todo-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #dcdde1;
+  border-radius: 6px;
+  font-size: 14px;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.todo-select-group {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.todo-select {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #dcdde1;
+  border-radius: 6px;
+  background: #fff;
+  font-size: 14px;
+  outline: none;
+}
+
+.todo-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #1a79b8;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.todo-button:hover {
+  background-color: #155f91;
+}
