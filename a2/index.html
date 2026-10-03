@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kunlik ishlar jadvali (Professional)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Sahifa sarlavhasi va Jonli soat -->
+        <header class="app-header">
+            <div>
+                <h1>Kunlik ishlar jadvali</h1>
+                <p class="subtitle">E — Ertalabki | K — Kechki | M — Majburiy | I — Ixtiyoriy</p>
+            </div>
+            <div class="live-clock-card">
+                <div id="liveDate" class="live-date">--.---.----</div>
+                <div id="liveTime" class="live-time">00:00:00</div>
+            </div>
+        </header>
+
+        <!-- Statistika va Progress Bar (Bajarilgan ishlar foizi) -->
+        <div class="stats-panel">
+            <div class="stats-info">
+                <span>Jami ishlar: <strong id="totalTasksCount">0</strong></span>
+                <span>Bajarildi: <strong id="completedTasksCount">0</strong></span>
+                <span>Qoldi: <strong id="pendingTasksCount">0</strong></span>
+                <span id="activeTaskAlert" class="active-task-badge">Hozirgi ish: Yo‘q</span>
+            </div>
+            <div class="progress-bar-container">
+                <div id="progressBar" class="progress-bar" style="width: 0%;"></div>
+            </div>
+        </div>
+
+        <!-- Boshqaruv paneli: Yangi qo'shish, Chop etish, Eksport/Import, Tozalash -->
+        <div class="action-toolbar">
+            <div class="btn-group-left">
+                <button id="openModalBtn" class="btn btn-primary">+ Yangi ish qo‘shish</button>
+                <button id="printBtn" class="btn btn-secondary">🖨 Chop etish / PDF</button>
+                <button id="sortBtn" class="btn btn-secondary" title="Vaqt bo‘yicha avtomatik tartiblash">⏱ Saralash</button>
+            </div>
+            <div class="btn-group-right">
+                <button id="exportBtn" class="btn btn-outline" title="Ma’lumotlarni JSON fayl qilib saqlash">⬇ Eksport</button>
+                <button id="importBtn" class="btn btn-outline" title="JSON fayldan yuklash">⬆ Import</button>
+                <input type="file" id="importFileInput" accept=".json" style="display: none;">
+                <button id="resetDefaultBtn" class="btn btn-outline" title="Dastlabki namunalarni qaytarish">↺ Qaytarish</button>
+                <button id="clearAllBtn" class="btn btn-danger-outline" title="Barcha ishlarni o‘chirish">🗑 Tozalash</button>
+            </div>
+        </div>
+
+        <!-- Qidiruv va Filtrlash paneli -->
+        <div class="filter-panel">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Ish nomidan qidirish...">
+            </div>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">Barchasi</button>
+                <button class="filter-btn" data-filter="M">Faqat Majburiy (M)</button>
+                <button class="filter-btn" data-filter="I">Faqat Ixtiyoriy (I)</button>
+                <button class="filter-btn" data-filter="completed">Bajarilganlar</button>
+                <button class="filter-btn" data-filter="pending">Bajarilmaganlar</button>
+            </div>
+        </div>
+
+        <!-- Jadval qismi (Rasmdagi asl tuzilma bo'yicha) -->
+        <div class="table-responsive">
+            <table id="scheduleTable">
+                <thead>
+                    <tr>
+                        <th style="width: 50px;">Vaqt</th>
+                        <th style="width: 50px;">Turi</th>
+                        <th style="width: 40px;">T/r</th>
+                        <th style="width: 40px;">Holati</th>
+                        <th>Vaqt oralig‘i va Ish nomi</th>
+                        <th style="width: 170px;" class="no-print">Amallar</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- JavaScript orqali dinamik to'ldiriladi -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Ish qo'shish va Tahrirlash uchun Modal (Oyna) -->
+    <div id="taskModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Yangi ish qo‘shish</h3>
+                <span id="closeModalBtn" class="close">&times;</span>
+            </div>
+
+            <form id="taskForm">
+                <!-- Tahrirlanayotgan ish indeksini saqlash uchun yashirin maydon -->
+                <input type="hidden" id="editIndex" value="-1">
+
+                <div class="form-group">
+                    <label for="taskPeriod">Kunning qismi:</label>
+                    <select id="taskPeriod" required>
+                        <option value="E">E — Ertalabki (00:00 - 12:00)</option>
+                        <option value="K">K — Kechki (12:00 - 24:00)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="taskType">Ish turi:</label>
+                    <select id="taskType" required>
+                        <option value="M">M — Majburiy</option>
+                        <option value="I">I — Ixtiyoriy</option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group half">
+                        <label for="startTime">Boshlanish vaqti:</label>
+                        <input type="time" id="startTime" required>
+                    </div>
+                    <div class="form-group half">
+                        <label for="endTime">Tugash vaqti:</label>
+                        <input type="time" id="endTime" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="taskTitle">Ish nomi / Mazmuni:</label>
+                    <input type="text" id="taskTitle" placeholder="Masalan: Ingliz tili" required>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" id="cancelBtn" class="btn btn-secondary">Bekor qilish</button>
+                    <button type="submit" class="btn btn-primary" id="saveBtn">Saqlash</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

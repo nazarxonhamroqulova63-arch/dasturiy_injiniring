@@ -1,0 +1,507 @@
+/* ==========================================================
+   KUNLIK ISHLAR JADVALI - USLUBLAR (CSS)
+   ========================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    color: #111111;
+    padding: 25px 15px;
+}
+
+.container {
+    max-width: 950px;
+    margin: 0 auto;
+}
+
+/* Sarlavha va Jonli soat bloki */
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #000;
+    padding-bottom: 15px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+h1 {
+    font-size: 26px;
+    color: #000000;
+    margin-bottom: 4px;
+}
+
+.subtitle {
+    font-size: 13px;
+    color: #555555;
+}
+
+.live-clock-card {
+    text-align: right;
+    background: #f7f7f7;
+    border: 1px solid #000;
+    padding: 8px 16px;
+    border-radius: 4px;
+}
+
+.live-date {
+    font-size: 12px;
+    color: #666;
+    font-weight: 500;
+}
+
+.live-time {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: monospace;
+    color: #000;
+}
+
+/* Statistika va Progress bar */
+.stats-panel {
+    background-color: #fafafa;
+    border: 1px solid #000;
+    border-radius: 4px;
+    padding: 12px 16px;
+    margin-bottom: 18px;
+}
+
+.stats-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+.stats-info span strong {
+    font-size: 15px;
+}
+
+.active-task-badge {
+    background-color: #e6f7ff;
+    border: 1px solid #91d5ff;
+    color: #0050b3;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.progress-bar-container {
+    width: 100%;
+    height: 10px;
+    background-color: #e5e5e5;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid #ccc;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: #000000;
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+/* Tugmalar paneli (Toolbar) */
+.action-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.btn-group-left, .btn-group-right {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+/* Tugmalar */
+.btn {
+    padding: 7px 14px;
+    font-size: 13px;
+    border: 1px solid #000;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.btn-primary {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: #333333;
+}
+
+.btn-secondary {
+    background-color: #f1f1f1;
+    color: #000000;
+}
+
+.btn-secondary:hover {
+    background-color: #e0e0e0;
+}
+
+.btn-outline {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.btn-outline:hover {
+    background-color: #f0f0f0;
+}
+
+.btn-danger-outline {
+    background-color: #ffffff;
+    border-color: #ff4d4f;
+    color: #ff4d4f;
+}
+
+.btn-danger-outline:hover {
+    background-color: #fff1f0;
+}
+
+/* Kichik amallar tugmalari (Jadval ichida) */
+.btn-sm {
+    padding: 3px 6px;
+    font-size: 11px;
+    margin: 0 1px;
+    border: 1px solid #777;
+    border-radius: 3px;
+    cursor: pointer;
+    background-color: #ffffff;
+}
+
+.btn-edit:hover {
+    background-color: #e6f7ff;
+    border-color: #1890ff;
+    color: #1890ff;
+}
+
+.btn-copy:hover {
+    background-color: #f6ffed;
+    border-color: #52c41a;
+    color: #52c41a;
+}
+
+.btn-delete:hover {
+    background-color: #fff1f0;
+    border-color: #ff4d4f;
+    color: #ff4d4f;
+}
+
+/* Qidiruv va Filtr paneli */
+.filter-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.search-box {
+    flex: 1;
+    min-width: 200px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 7px 10px;
+    font-size: 13px;
+    border: 1px solid #888;
+    border-radius: 4px;
+    outline: none;
+}
+
+.search-box input:focus {
+    border-color: #000;
+}
+
+.filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.filter-btn {
+    padding: 5px 10px;
+    font-size: 12px;
+    background: #ffffff;
+    border: 1px solid #bbb;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.filter-btn.active {
+    background: #000000;
+    color: #ffffff;
+    border-color: #000000;
+}
+
+/* Jadval ko'rinishi */
+.table-responsive {
+    overflow-x: auto;
+    margin-bottom: 30px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    border: 2px solid #000000;
+}
+
+th, td {
+    border: 1px solid #000000;
+    padding: 9px 10px;
+    font-size: 13px;
+    text-align: left;
+}
+
+th {
+    background-color: #f5f5f5;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* E, K, M, I ustunlari uchun maxsus */
+.center-cell {
+    text-align: center;
+    vertical-align: middle;
+    font-weight: bold;
+    font-size: 16px;
+    background-color: #ffffff;
+    width: 50px;
+}
+
+.number-cell {
+    text-align: center;
+    font-weight: bold;
+    width: 40px;
+}
+
+.checkbox-cell {
+    text-align: center;
+    width: 40px;
+}
+
+.checkbox-cell input[type="checkbox"] {
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+}
+
+/* Bajarilgan ish holati (ustidan chizish) */
+tr.task-done td {
+    background-color: #fdfdfd;
+}
+
+tr.task-done .task-title-cell {
+    text-decoration: line-through;
+    color: #888888;
+}
+
+/* Ayni hozir bajarilayotgan ish (jonli vaqt oralig'i) */
+tr.task-current-active td {
+    background-color: #f0f7ff !important;
+    border-top: 2px solid #1890ff;
+    border-bottom: 2px solid #1890ff;
+}
+
+/* Qator hover */
+tbody tr:hover {
+    background-color: #fafafa;
+}
+
+.actions-cell {
+    text-align: center;
+    white-space: nowrap;
+}
+
+.empty-text {
+    color: #888;
+    font-style: italic;
+    text-align: center;
+}
+
+/* Modal oyna (Popup form) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.45);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    padding: 24px;
+    border: 2px solid #000000;
+    border-radius: 6px;
+    width: 90%;
+    max-width: 440px;
+    text-align: left;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 8px;
+}
+
+.close {
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.close:hover {
+    color: #ff0000;
+}
+
+.form-group {
+    margin-bottom: 14px;
+}
+
+.form-row {
+    display: flex;
+    gap: 10px;
+}
+
+.form-group.half {
+    flex: 1;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="time"],
+select {
+    width: 100%;
+    padding: 8px 10px;
+    font-size: 14px;
+    border: 1px solid #777;
+    border-radius: 4px;
+    outline: none;
+    background-color: #ffffff;
+}
+
+input[type="text"]:focus,
+input[type="time"]:focus,
+select:focus {
+    border-color: #000;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+/* ==========================================================
+   CHOP ETISH (PRINT / PDF) UCHUN SOZLAMALAR
+   ========================================================== */
+@media print {
+    body {
+        padding: 0;
+        color: #000;
+    }
+
+    .action-toolbar,
+    .filter-panel,
+    .no-print,
+    .modal,
+    .btn-edit,
+    .btn-delete,
+    .btn-copy,
+    .actions-cell,
+    th.no-print {
+        display: none !important;
+    }
+
+    table {
+        border: 2px solid #000 !important;
+        page-break-inside: auto;
+    }
+
+    tr {
+        page-break-inside: avoid;
+        page-break-after: auto;
+    }
+
+    .stats-panel {
+        border: 1px solid #000;
+    }
+
+    .progress-bar-container {
+        display: none;
+    }
+}
+
+/* Mobil qurilmalar uchun */
+@media (max-width: 650px) {
+    body {
+        padding: 10px;
+    }
+
+    .app-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .live-clock-card {
+        width: 100%;
+        text-align: left;
+    }
+
+    .action-toolbar, .filter-panel {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btn-group-left, .btn-group-right, .filter-buttons {
+        width: 100%;
+    }
+
+    .btn, .filter-btn {
+        flex: 1;
+        text-align: center;
+    }
+}
