@@ -1,0 +1,119 @@
+/* Umumiy sozlamalar */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f4f8;
+  color: #333;
+  padding: 30px 20px;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+/* Asosiy sarlavha */
+h1 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 30px;
+  font-size: 1.8rem;
+}
+
+/* Vaqt bloklari (Ertalabki / Kechqurungi) */
+.time-block {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border-left: 6px solid #3498db;
+}
+
+.time-block:nth-child(even) {
+  border-left-color: #9b59b6;
+}
+
+.time-block h2 {
+  font-size: 1.3rem;
+  color: #2c3e50;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 8px;
+}
+
+/* Vazifalar kategoriyasi */
+.task-category {
+  margin-bottom: 15px;
+}
+
+.task-category:last-child {
+  margin-bottom: 0;
+}
+
+.task-category h3 {
+  font-size: 0.9rem;
+  color: #7f8c8d;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Har bir vazifa qatori */
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f8fafc;
+  padding: 10px 15px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  border: 1px solid #e2e8f0;
+  transition: all 0.2s ease;
+}
+
+.task-item:hover {
+  background: #edf2f7;
+}
+
+/* Checkbox (Belgilash katakchasi) */
+.task-item input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: #3498db;
+}
+
+/* Vazifa matni */
+.task-item label {
+  flex: 1;
+  margin-left: 12px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: #2d3748;
+  user-select: none;
+}
+
+/* Checkbox belgilanganda matn ustidan chizish */
+.task-check:checked + label {
+  text-decoration: line-through;
+  color: #a0aec0;
+}
+
+/* O'chirish tugmasi */
+.delete-btn {
+  background-color: #e53e3e;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background 0.2s;
+}
+
+.delete-btn:hover {
+  background-color: #c53030;
+}
